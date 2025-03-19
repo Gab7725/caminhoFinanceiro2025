@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaxaSelic</title>
+    <link rel="stylesheet" href="../Site2025/TaxaSelic.css">
+    <link href="https://fonts.googleapis.com/css2?family=Arial:wght@400&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <a href="./index.html">
+                <img src="../Site2025/img/caminho.logo.png" alt="logotipo da pg" class="logotipo">
+            </a>
+            <!-- Botão de menu para mobile -->
+            <button class="menu-toggle" aria-label="Abrir menu">
+                <i class="fas fa-bars"></i> <!-- Ícone de hambúrguer do FontAwesome -->
+            </button>
+            <nav>
+                <ul class="menu">
+                    <li><a href="../Site2025/abasmenu.semente.html">Semente Financeira</a></li>
+                    <li><a href="../Site2025/Investindo no Seu Potencial.html">Investindo no Seu Potencial</a></li>
+                    <li><a href="../Site2025/Histórias de Sucesso.html">Histórias de Sucesso</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div id="selic">
+        <h1>O que é a Taxa Selic?</h1>
+        <p>A Selic é a taxa básica de juros da economia brasileira. Ela influencia todas as outras taxas de juros, como empréstimos e investimentos.</p>
+
+        <h2>Como a Selic afeta a economia?</h2>
+        <p>Quando a Selic sobe, os juros de empréstimos e financiamentos ficam mais caros, mas os investimentos rendem mais. Quando cai, os empréstimos ficam mais baratos, mas os investimentos rendem menos.</p>
+
+        <h2>Quem define a Selic?</h2>
+        <p>O Comitê de Política Monetária (Copom) do Banco Central define a meta da Selic para controlar a inflação.</p>
+
+        <h2>Por que a Selic é importante?</h2>
+        <p>Ela ajuda a controlar a inflação e influencia o custo do crédito e o retorno dos investimentos.</p>
+    </div>
+    <script>
+        // Script para alternar o menu
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            const nav = document.querySelector('nav');
+            nav.classList.toggle('active'); // Adiciona/remove a classe 'active'
+        });
+    </script>
+</body>
+</html>

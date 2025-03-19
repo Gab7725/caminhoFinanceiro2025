@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renda Fixa vs Renda Variável</title>
+    <link rel="stylesheet" href="./rendaVSrenda.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="./index.html">
+                <img src="../Site2025/img/caminho.logo.png" alt="logotipo da pg" class="logotipo">
+            </a>
+            <!-- Botão de menu para mobile -->
+            <button class="menu-toggle" aria-label="Abrir menu">
+                <i class="fas fa-bars"></i> <!-- Ícone de hambúrguer do FontAwesome -->
+            </button>
+            <nav>
+                <ul class="menu">
+                    <li><a href="../Site2025/abasmenu.semente.html">Semente Financeira</a></li>
+                    <li><a href="../Site2025/Investindo no Seu Potencial.html">Investindo no Seu Potencial</a></li>
+                    <li><a href="../Site2025/Histórias de Sucesso.html">Histórias de Sucesso</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section>
+            <h2>O que é Renda Fixa?</h2>
+            <p>
+                A Renda Fixa é um tipo de investimento onde o retorno é previsível, baseado em taxas de juros ou índices pré-definidos. É ideal para quem busca segurança e estabilidade.
+            </p>
+            <ul>
+                <li><strong>Exemplos:</strong> Tesouro Direto, CDB, LCI, LCA.</li>
+                <li><strong>Vantagens:</strong> Segurança, previsibilidade, baixo risco.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>O que é Renda Variável?</h2>
+            <p>
+                A Renda Variável é um tipo de investimento onde o retorno não é previsível e depende do desempenho do mercado. Pode oferecer ganhos maiores, mas com mais riscos.
+            </p>
+            <ul>
+                <li><strong>Exemplos:</strong> Ações, FIIs, ETFs, Criptomoedas.</li>
+                <li><strong>Vantagens:</strong> Potencial de retornos altos, diversificação.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Diferenças entre Renda Fixa e Renda Variável</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Característica</th>
+                        <th>Renda Fixa</th>
+                        <th>Renda Variável</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Retorno</td>
+                        <td>Previsível</td>
+                        <td>Imprevisível</td>
+                    </tr>
+                    <tr>
+                        <td>Risco</td>
+                        <td>Baixo a moderado</td>
+                        <td>Moderado a alto</td>
+                    </tr>
+                    <tr>
+                        <td>Liquidez</td>
+                        <td>Alta</td>
+                        <td>Variável</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script>
+        // Script para alternar o menu
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            const nav = document.querySelector('nav');
+            nav.classList.toggle('active'); // Adiciona/remove a classe 'active'
+        });
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ETFs</title>
+    <link rel="stylesheet" href="./etf.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="./index.html">
+                <img src="../Site2025/img/caminho.logo.png" alt="logotipo da pg" class="logotipo">
+            </a>
+            <!-- Botão de menu para mobile -->
+            <button class="menu-toggle" aria-label="Abrir menu">
+                <i class="fas fa-bars"></i> <!-- Ícone de hambúrguer do FontAwesome -->
+            </button>
+            <nav>
+                <ul class="menu">
+                    <li><a href="../Site2025/abasmenu.semente.html">Semente Financeira</a></li>
+                    <li><a href="../Site2025/Investindo no Seu Potencial.html">Investindo no Seu Potencial</a></li>
+                    <li><a href="../Site2025/Histórias de Sucesso.html">Histórias de Sucesso</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+
+    <main>
+        <section>
+            <h2>O que é um ETF?</h2>
+            <p>
+                Um ETF (Exchange Traded Fund) é um fundo de investimento que replica o desempenho de um índice de mercado, como o Ibovespa ou o S&P 500. Ele é negociado na bolsa de valores, assim como as ações.
+            </p>
+        </section>
+
+        <section>
+            <h2>Para que Serve um ETF?</h2>
+            <ul>
+                <li>Diversificação de investimentos.</li>
+                <li>Custos baixos de administração.</li>
+                <li>Liquidez e facilidade de negociação.</li>
+                <li>Acesso a mercados globais.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Tipos de ETFs</h2>
+            <ul>
+                <li><strong>ETFs de Ações:</strong> Replicam índices de ações.</li>
+                <li><strong>ETFs de Renda Fixa:</strong> Replicam índices de títulos.</li>
+                <li><strong>ETFs de Commodities:</strong> Replicam o desempenho de commodities.</li>
+                <li><strong>ETFs Setoriais:</strong> Focam em setores específicos.</li>
+                <li><strong>ETFs Internacionais:</strong> Permitem investir em índices de outros países.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Exemplo Prático</h2>
+            <p>
+                Investindo R$ 10.000 em um ETF que replica o Ibovespa, se o índice valorizar 10% em um ano, seu investimento valerá:
+            </p>
+            <ul>
+                <li>Valor Final: R$ 11.000.</li>
+            </ul>
+        </section>
+    </main>
+
+    <script>
+        // Script para alternar o menu
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            const nav = document.querySelector('nav');
+            nav.classList.toggle('active'); // Adiciona/remove a classe 'active'
+        });
+    </script>
+</body>
+</html>

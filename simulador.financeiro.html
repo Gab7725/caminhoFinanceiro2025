@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Reserva de Emergência</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="simulador.financeiro.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Simulador de Reserva de Emergência</h1>
+        
+        <!-- Entrada de Gastos Mensais -->
+        <div class="input-group">
+            <label for="monthlyExpenses">Gastos Mensais (R$):</label>
+            <input type="text" id="monthlyExpenses" placeholder="Ex: 3000.00" step="0.01">
+        </div>
+
+        <!-- Entrada de Meses de Cobertura -->
+        <div class="input-group">
+            <label for="coverageMonths">Meses de Cobertura Desejados:</label>
+            <input type="text" id="coverageMonths" placeholder="Ex: 6" min="1">
+        </div>
+
+        <!-- Botão para Calcular -->
+        <button onclick="calculateEmergencyFund()">Calcular</button>
+
+        <!-- Resultados -->
+        <div id="result" class="result">
+            <h2>Reserva de Emergência Necessária</h2>
+            <p id="totalFund"></p>
+        </div>
+
+        <!-- Gráfico de Progresso -->
+        <div class="chart-container">
+            <canvas id="progressChart"></canvas>
+        </div>
+
+        <!-- Botão "Voltar ao Início" -->
+       <a href="index.html">
+        <button onclick="scrollToTop()" class="back-to-top">Voltar ao Início</button>
+       </a>
+    </div>
+
+    
+<script>
+    function calculateEmergencyFund() {
+    // Captura dos valores inseridos pelo usuário
+    const monthlyExpenses = parseFloat(document.getElementById('monthlyExpenses').value);
+    const coverageMonths = parseInt(document.getElementById('coverageMonths').value);
+
+    // Validação dos campos
+    if (isNaN(monthlyExpenses) || monthlyExpenses <= 0) {
+        alert("Por favor, insira um valor válido para os gastos mensais.");
+        return;
+    }
+    if (isNaN(coverageMonths) || coverageMonths <= 0) {
+        alert("Por favor, insira um número válido de meses de cobertura.");
+        return;
+    }
+
+    // Cálculo da reserva de emergência
+    const totalFund = monthlyExpenses * coverageMonths;
+
+    // Exibição do resultado com duas casas decimais
+    document.getElementById('totalFund').innerText = `Você precisa guardar R$ ${totalFund.toFixed(2)}`;
+
+    // Atualização do gráfico
+    updateChart(totalFund);
+}
+
+function updateChart(totalFund) {
+    const ctx = document.getElementById('progressChart').getContext('2d');
+
+    // Destruir gráfico anterior, se existir
+    if (window.myChart) {
+        window.myChart.destroy();
+    }
+
+    // Criar novo gráfico
+    window.myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Reserva Necessária'],
+            datasets: [{
+                label: 'Valor (R$)',
+                data: [totalFund],
+                backgroundColor: '#007bff',
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'Valor (R$)'
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false,
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function (context) {
+                            return `R$ ${context.raw.toFixed(2)}`;
+                        }
+                    }
+                }
+            }
+        }
+    });
+}
+
+// Função para voltar ao topo da página
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth' // Rolagem suave
+    });
+}
+function calculateEmergencyFund() {
+    // Captura dos valores inseridos pelo usuário
+    const monthlyExpensesInput = document.getElementById('monthlyExpenses').value;
+    const coverageMonths = parseInt(document.getElementById('coverageMonths').value);
+
+    // Substituir vírgula por ponto para cálculos
+    const monthlyExpenses = parseFloat(monthlyExpensesInput.replace(',', '.'));
+
+    // Validação dos campos
+    if (isNaN(monthlyExpenses) || monthlyExpenses <= 0) {
+        alert("Por favor, insira um valor válido para os gastos mensais.");
+        return;
+    }
+    if (isNaN(coverageMonths) || coverageMonths <= 0) {
+        alert("Por favor, insira um número válido de meses de cobertura.");
+        return;
+    }
+
+    // Cálculo da reserva de emergência
+    const totalFund = monthlyExpenses * coverageMonths;
+
+    // Exibição do resultado com duas casas decimais e vírgula
+    document.getElementById('totalFund').innerText = `Você precisa guardar R$ ${totalFund.toFixed(2).replace('.', ',')}`;
+
+    // Atualização do gráfico
+    updateChart(totalFund);
+}
+
+function updateChart(totalFund) {
+    const ctx = document.getElementById('progressChart').getContext('2d');
+
+    // Destruir gráfico anterior, se existir
+    if (window.myChart) {
+        window.myChart.destroy();
+    }
+
+    // Criar novo gráfico
+    window.myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Reserva Necessária'],
+            datasets: [{
+                label: 'Valor (R$)',
+                data: [totalFund],
+                backgroundColor: '#007bff',
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'Valor (R$)'
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false,
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function (context) {
+                            return `R$ ${context.raw.toFixed(2).replace('.', ',')}`;
+                        }
+                    }
+                }
+            }
+        }
+    });
+}
+
+// Função para voltar ao topo da página
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth' // Rolagem suave
+    });
+}
+function calculateEmergencyFund() {
+    // Captura dos valores inseridos pelo usuário
+    const monthlyExpensesInput = document.getElementById('monthlyExpenses').value;
+    const coverageMonths = parseInt(document.getElementById('coverageMonths').value);
+
+    // Tratamento do valor monetário
+    let monthlyExpenses = monthlyExpensesInput
+        .replace(/\./g, '') // Remove pontos de milhar (ex: 4.900 → 4900)
+        .replace(',', '.'); // Substitui vírgula por ponto (ex: 4900,00 → 4900.00)
+
+    // Converte para número
+    monthlyExpenses = parseFloat(monthlyExpenses);
+
+    // Validação dos campos
+    if (isNaN(monthlyExpenses) || monthlyExpenses <= 0) {
+        alert("Por favor, insira um valor válido para os gastos mensais.");
+        return;
+    }
+    if (isNaN(coverageMonths) || coverageMonths <= 0) {
+        alert("Por favor, insira um número válido de meses de cobertura.");
+        return;
+    }
+
+    // Cálculo da reserva de emergência
+    const totalFund = monthlyExpenses * coverageMonths;
+
+    // Exibição do resultado com duas casas decimais e vírgula
+    document.getElementById('totalFund').innerText = `Você precisa guardar R$ ${totalFund.toLocaleString('pt-BR', { style: 'decimal', minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+
+    // Atualização do gráfico
+    updateChart(totalFund);
+}
+
+function updateChart(totalFund) {
+    const ctx = document.getElementById('progressChart').getContext('2d');
+
+    // Destruir gráfico anterior, se existir
+    if (window.myChart) {
+        window.myChart.destroy();
+    }
+
+    // Criar novo gráfico
+    window.myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Reserva Necessária'],
+            datasets: [{
+                label: 'Valor (R$)',
+                data: [totalFund],
+                backgroundColor: '#007bff',
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'Valor (R$)'
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false,
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function (context) {
+                            return `R$ ${context.raw.toLocaleString('pt-BR', { style: 'decimal', minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+                        }
+                    }
+                }
+            }
+        }
+    });
+}
+
+// Função para voltar ao topo da página
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth' // Rolagem suave
+    });
+}
+</script>
+
+</body>
+</html>

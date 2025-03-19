@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tesouro Direto</title>
+    <link rel="stylesheet" href="./tesouroDireto.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="./index.html">
+                <img src="../Site2025/img/caminho.logo.png" alt="logotipo da pg" class="logotipo">
+            </a>
+            <!-- Botão de menu para mobile -->
+            <button class="menu-toggle" aria-label="Abrir menu">
+                <i class="fas fa-bars"></i> <!-- Ícone de hambúrguer do FontAwesome -->
+            </button>
+            <nav>
+                <ul class="menu">
+                    <li><a href="../Site2025/abasmenu.semente.html">Semente Financeira</a></li>
+                    <li><a href="../Site2025/Investindo no Seu Potencial.html">Investindo no Seu Potencial</a></li>
+                    <li><a href="../Site2025/Histórias de Sucesso.html">Histórias de Sucesso</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <h2>O que é Tesouro Direto?</h2>
+            <p>
+                O Tesouro Direto é um programa do governo federal que permite a compra de títulos públicos por pessoas físicas. É uma forma segura de investir e proteger seu dinheiro.
+            </p>
+        </section>
+
+        <section>
+            <h2>Tipos de Títulos do Tesouro Direto</h2>
+            <ul>
+                <li><strong>Tesouro Selic (LFT):</strong> Vinculado à taxa Selic.</li>
+                <li><strong>Tesouro IPCA+ (NTN-B):</strong> Protege contra a inflação.</li>
+                <li><strong>Tesouro Prefixado (LTN):</strong> Taxa fixa definida na compra.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Como se Proteger da Inflação</h2>
+            <p>
+                Para se proteger da inflação, invista no <strong>Tesouro IPCA+</strong>. Ele oferece uma taxa fixa somada à variação do IPCA, garantindo que seu dinheiro cresça acima da inflação.
+            </p>
+            <h3>Exemplo Prático</h3>
+            <p>
+                Se você investir R$ 1.000 em um título IPCA+ com taxa de 5% ao ano e a inflação for de 6%, seu rendimento será:
+            </p>
+            <ul>
+                <li>Correção pela inflação: R$ 1.060.</li>
+                <li>Taxa fixa: R$ 1.113.</li>
+            </ul>
+        </section>
+    </main>
+
+    <script>
+        // Script para alternar o menu
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            const nav = document.querySelector('nav');
+            nav.classList.toggle('active'); // Adiciona/remove a classe 'active'
+        });
+    </script>
+</body>
+</html>

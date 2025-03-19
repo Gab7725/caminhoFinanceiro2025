@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jornada Financeira - Caminho Financeiro</title>
+    <link rel="stylesheet" href="abasmenu.semente.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="index.html">
+                <img src="./img/caminho.logo.png" alt="Logo Caminho Financeiro" class="logo">
+            </a>
+            <nav>
+                <ul class="menu">
+                    <li><a href="../Site2025/abasmenu.semente.html">Semente Financeira</a></li>
+                    <li><a href="../Site2025/Investindo no Seu Potencial.html">Investindo no Seu Potencial</a></li>
+                    <li><a href="../Site2025/Histórias de Sucesso.html">Histórias de Sucesso</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" aria-label="Abrir menu">&#9776;</button>
+        </div>
+    </header>
+
+    <div id="jornada-financeira" class="content-section">
+        <h1 style="color: red;">Defina sua Jornada até a Semente Financeira</h1>
+        <p style="color: green;" class="subtitle">Escolha seus objetivos e descubra o caminho para o sucesso financeiro!</p>
+
+        <div class="jornada-container">
+            <!-- Etapa 1: Objetivo Inicial -->
+            <div class="etapa" id="etapa1">
+                <h2>🌱 Etapa 1: Qual é o seu objetivo inicial?</h2>
+                <p>Escolha o que mais combina com você no momento:</p>
+                <div class="opcoes">
+                    <button class="opcao" data-etapa="1" data-opcao="economia">Aprender Economia Básica</button>
+                    <button class="opcao" data-etapa="1" data-opcao="investimentos">Começar a Investir</button>
+                    <button class="opcao" data-etapa="1" data-opcao="gestao">Organizar Minhas Finanças</button>
+                </div>
+            </div>
+
+            <!-- Etapa 2: Método de Aprendizado -->
+            <div class="etapa" id="etapa2" style="display: none;">
+                <h2>🌿 Etapa 2: Como você prefere aprender?</h2>
+                <p>Escolha o método que mais combina com você:</p>
+                <div class="opcoes">
+                    <button class="opcao" data-etapa="2" data-opcao="leitura">Ler Artigos e Livros</button>
+                    <button class="opcao" data-etapa="2" data-opcao="cursos">Fazer Cursos Online</button>
+                    <button class="opcao" data-etapa="2" data-opcao="mentoria">Ter Acompanhamento de um Mentor</button>
+                </div>
+            </div>
+
+            <!-- Etapa 3: Resultado Personalizado -->
+            <div class="etapa" id="etapa3" style="display: none;">
+                <h2>🌳 Etapa 3: Seu Caminho Financeiro</h2>
+                <div id="resultado">
+                    <p>Você escolheu <strong id="escolha1"></strong> e <strong id="escolha2"></strong>.</p>
+                    <p id="orientacao"></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Árvore que cresce -->
+        <div class="arvore-container">
+            <div class="arvore" id="arvore">
+                <img src="./img/img.semente.jpg" alt="Semente" id="imagem-arvore">
+            </div>
+        </div>
+    </div>
+
+    <!-- Botão "Voltar ao Topo" -->
+    <button id="back-to-top" title="Voltar ao topo">↑</button>
+
+    <footer>
+        <p>&copy; 2025 Caminho Financeiro. Todos os direitos reservados. by: Gab Barreto</p>
+    </footer>
+
+    <script>
+        // Script para a Jornada Financeira
+        const etapas = document.querySelectorAll(".etapa");
+        const opcoes = document.querySelectorAll(".opcao");
+        const imagemArvore = document.getElementById("imagem-arvore");
+        const escolha1 = document.getElementById("escolha1");
+        const escolha2 = document.getElementById("escolha2");
+        const orientacao = document.getElementById("orientacao");
+
+        let etapaAtual = 1;
+        let escolhas = [];
+
+        // Dicas personalizadas
+        const dicas = {
+            economia: {
+                leitura: "Foque em ler livros como 'Pai Rico, Pai Pobre' e artigos sobre economia básica. Isso ajudará você a entender como o dinheiro funciona.",
+                cursos: "Faça cursos online sobre economia doméstica e planejamento financeiro. Plataformas como Coursera e Udemy têm ótimas opções.",
+                mentoria: "Busque um mentor que possa te guiar nos primeiros passos da economia pessoal. Um profissional pode ajudar a criar um plano sólido."
+            },
+            investimentos: {
+                leitura: "Leia livros como 'O Investidor Inteligente' e acompanhe blogs especializados em investimentos para entender o mercado.",
+                cursos: "Invista em cursos sobre renda fixa, renda variável e fundos imobiliários. Conhecimento é a base para investir com segurança.",
+                mentoria: "Considere contratar um consultor financeiro para te ajudar a montar uma carteira de investimentos adequada ao seu perfil."
+            },
+            gestao: {
+                leitura: "Leia sobre métodos de organização financeira, como o 50-30-20, e comece a aplicar no seu dia a dia.",
+                cursos: "Faça cursos sobre gestão financeira pessoal para aprender a controlar gastos e planejar seu futuro.",
+                mentoria: "Um mentor pode te ajudar a criar um plano de ação para sair das dívidas e organizar suas finanças."
+            }
+        };
+
+        opcoes.forEach(opcao => {
+            opcao.addEventListener("click", () => {
+                const etapa = opcao.getAttribute("data-etapa");
+                const valor = opcao.getAttribute("data-opcao");
+
+                if (etapa == 1) {
+                    escolhas[0] = valor;
+                    etapaAtual = 2;
+                    document.getElementById("etapa1").style.display = "none";
+                    document.getElementById("etapa2").style.display = "block";
+                    imagemArvore.src = "./img/broto.jpg"; // Atualiza a imagem para um broto
+                } else if (etapa == 2) {
+                    escolhas[1] = valor;
+                    etapaAtual = 3;
+                    document.getElementById("etapa2").style.display = "none";
+                    document.getElementById("etapa3").style.display = "block";
+                    imagemArvore.src = "./img/Arvore.webp"; // Atualiza a imagem para uma árvore
+                    escolha1.textContent = escolhas[0];
+                    escolha2.textContent = escolhas[1];
+                    orientacao.textContent = dicas[escolhas[0]][escolhas[1]];
+                }
+            });
+        });
+
+        // Script para o botão "Voltar ao Topo"
+        const backToTopButton = document.getElementById("back-to-top");
+
+        window.addEventListener("scroll", () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.style.display = "block";
+            } else {
+                backToTopButton.style.display = "none";
+            }
+        });
+
+        backToTopButton.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+
+        // Script para o menu responsivo
+        const menuToggle = document.querySelector(".menu-toggle");
+        const nav = document.querySelector("nav");
+
+        menuToggle.addEventListener("click", () => {
+            nav.classList.toggle("active");
+        });
+    </script>
+</body>
+</html>

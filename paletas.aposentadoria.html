@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aposentadoria</title>
+    <link rel="stylesheet" href="paletas.aposentadoria.css">
+</head>
+<body>
+    <section class="aposentadoria-calculadora">
+        <h2>Calculadora de Aposentadoria</h2>
+        <button onclick="window.location.href='index.html'" class="btn-voltar">Voltar</button> <!-- Botão de voltar -->
+        <form id="aposentadoriaForm">
+            <div class="form-group">
+                <label for="valorMensalDesejado">Quanto você quer receber por mês ao se aposentar (R$)?</label>
+                <input type="text" id="valorMensalDesejado" required>
+            </div>
+            <div class="form-group">
+                <label for="anosParaAposentadoria">Em quantos anos você quer se aposentar?</label>
+                <input type="number" id="anosParaAposentadoria" required>
+            </div>
+            <button type="submit">Calcular</button>
+        </form>
+        <div id="resultado">
+            <h3>Resultado:</h3>
+            <p>Para receber <strong><span id="resultadoValorDesejado">-</span></strong> por mês durante sua aposentadoria, você precisará investir:</p>
+            <p><strong>Investimento Mensal Necessário:</strong> <span id="investimentoMensal">-</span></p>
+            <p class="nota">*Consideramos uma taxa de retorno anual de 6%, que é um valor conservador para investimentos de longo prazo.</p>
+        </div>
+    </section>
+    <script>
+       document.getElementById('aposentadoriaForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Evita o recarregamento da página
+
+    // Função para converter valores com pontos ou vírgulas em números
+    function parseCurrency(value) {
+        return parseFloat(value.replace(/\./g, '').replace(',', '.'));
+    }
+
+    // Captura os valores do formulário
+    const valorMensalDesejado = parseCurrency(document.getElementById('valorMensalDesejado').value);
+    const anosParaAposentadoria = parseFloat(document.getElementById('anosParaAposentadoria').value);
+
+    // Taxa de retorno anual fixa (6%)
+    const taxaRetornoAnual = 6;
+
+    // Calcula a taxa de retorno mensal (em decimal)
+    const taxaRetornoMensal = (taxaRetornoAnual / 100) / 12;
+
+    // Calcula o número total de meses
+    const totalMeses = anosParaAposentadoria * 12;
+
+    // Calcula o valor acumulado necessário para gerar a renda mensal desejada
+    const valorAcumuladoNecessario = valorMensalDesejado / taxaRetornoMensal;
+
+    // Calcula o investimento mensal necessário
+    const investimentoMensal = (valorAcumuladoNecessario * taxaRetornoMensal) /
+        (Math.pow(1 + taxaRetornoMensal, totalMeses) - 1);
+
+    // Formata os números para 2 casas decimais
+    const valorMensalDesejadoFormatado = valorMensalDesejado.toLocaleString('pt-BR', {
+        style: 'currency',
+        currency: 'BRL'
+    });
+
+    const investimentoMensalFormatado = investimentoMensal.toLocaleString('pt-BR', {
+        style: 'currency',
+        currency: 'BRL'
+    });
+
+    // Exibe os resultados
+    document.getElementById('resultadoValorDesejado').textContent = valorMensalDesejadoFormatado;
+    document.getElementById('investimentoMensal').textContent = investimentoMensalFormatado;
+});
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descubra seu Perfil de Investidor</title>
+    <link rel="stylesheet" href="./perfil.css">
+</head>
+<body>
+       
+    <div class="container">
+        <h1>Descubra seu Perfil de Investidor</h1>
+        <form id="quiz-form">
+            
+            <div class="question active">
+                <p>1. Qual seu objetivo ao investir?</p>
+                <button type="button" data-value="1">Preservar o patrimônio</button>
+                <button type="button" data-value="2">Crescer o patrimônio com algum risco</button>
+                <button type="button" data-value="3">Maximizar ganhos, aceitando riscos</button>
+            </div>
+
+            
+            <div class="question">
+                <p>2. Como você reage a quedas no mercado?</p>
+                <button type="button" data-value="1">Fico preocupado e penso em vender</button>
+                <button type="button" data-value="2">Acompanho de perto, mas mantenho a calma</button>
+                <button type="button" data-value="3">Vejo como uma oportunidade para comprar mais</button>
+            </div>
+
+            
+            <div class="question">
+                <p>3. Qual seu horizonte de investimento?</p>
+                <button type="button" data-value="1">Curto prazo (até 2 anos)</button>
+                <button type="button" data-value="2">Médio prazo (2 a 5 anos)</button>
+                <button type="button" data-value="3">Longo prazo (acima de 5 anos)</button>
+            </div>
+
+            <!-- Pergunta 4 -->
+            <div class="question">
+                <p>4. Qual sua experiência com investimentos?</p>
+                <button type="button" data-value="1">Nenhuma ou pouca experiência</button>
+                <button type="button" data-value="2">Alguma experiência</button>
+                <button type="button" data-value="3">Experiente</button>
+            </div>
+        </form>
+
+        <!-- Resultado -->
+        <div id="result" class="hidden">
+            <h2>Seu perfil de investidor é:</h2>
+            <p id="profile"></p>
+            <button id="restart">Refazer teste</button>
+            <a style="text-decoration: none;" href="./index.html"><button>Voltar ao Inicio</button></a>
+        </div>
+    </div>
+
+    <script src="./perfil.js"></script>
+</body>
+</html>

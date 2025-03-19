@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundos Imobiliários</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="./fiis.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="./index.html">
+                <img src="../Site2025/img/caminho.logo.png" alt="logotipo da pg" class="logotipo">
+            </a>
+            <!-- Botão de menu para mobile -->
+            <button class="menu-toggle" aria-label="Abrir menu">
+                <i class="fas fa-bars"></i> <!-- Ícone de hambúrguer do FontAwesome -->
+            </button>
+            <nav>
+                <ul class="menu">
+                    <li><a href="../Site2025/abasmenu.semente.html">Semente Financeira</a></li>
+                    <li><a href="../Site2025/Investindo no Seu Potencial.html">Investindo no Seu Potencial</a></li>
+                    <li><a href="../Site2025/Histórias de Sucesso.html">Histórias de Sucesso</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section>
+            <h2>O que são Fundos Imobiliários (FIIs)?</h2>
+            <p>
+                Fundos Imobiliários são investimentos coletivos que aplicam em imóveis ou títulos do setor imobiliário. Eles permitem que você invista em imóveis sem precisar comprar uma propriedade inteira.
+            </p>
+        </section>
+
+        <section>
+            <h2>Vantagens dos FIIs</h2>
+            <ul>
+                <li>Renda passiva por meio de dividendos.</li>
+                <li>Diversificação de investimentos.</li>
+                <li>Isenção de Imposto de Renda para pessoas físicas.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Como Avaliar um Fundo Imobiliário</h2>
+            <h3>Rentabilidade</h3>
+            <ul>
+                <li><strong>Dividend Yield (DY):</strong> Percentual da renda distribuída.</li>
+                <li><strong>Histórico de Distribuições:</strong> Consistência nos pagamentos.</li>
+            </ul>
+
+            <h3>Qualidade dos Ativos</h3>
+            <ul>
+                <li><strong>Tipo de Imóvel:</strong> Comercial, residencial, logístico.</li>
+                <li><strong>Localização:</strong> Imóveis em regiões valorizadas.</li>
+            </ul>
+
+            <h3>Gestão do Fundo</h3>
+            <ul>
+                <li><strong>Taxas de Administração:</strong> Quanto menor, melhor.</li>
+                <li><strong>Experiência do Gestor:</strong> Reputação e histórico.</li>
+            </ul>
+
+            <h3>Valuation</h3>
+            <ul>
+                <li><strong>P/VP (Preço sobre Valor Patrimonial):</strong> Indica se a cota está barata ou cara.</li>
+            </ul>
+        </section>
+    </main>
+
+    <script>
+        // Script para alternar o menu
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            const nav = document.querySelector('nav');
+            nav.classList.toggle('active'); // Adiciona/remove a classe 'active'
+        });
+    </script>
+</body>
+</html>

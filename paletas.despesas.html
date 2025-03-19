@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="paletas.despesas.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Biblioteca para o gráfico -->
+    <title>Despesas</title>
+</head>
+<body>
+    <section class="simulador-gastos">
+        <h2>Simulador de Gastos Fixos e Superfluos</h2>
+        <button onclick="window.location.href='index.html'" class="btn-voltar">Voltar</button> <!-- Botão de voltar -->
+        <form id="gastosForm">
+            <!-- Gastos Fixos -->
+            <div class="gastos-fixos">
+                <h3>Gastos Fixos</h3>
+                <div class="form-group">
+                    <label for="aluguel">Aluguel ou Financiamento (R$):</label>
+                    <input type="text" id="aluguel" required>
+                </div>
+                <div class="form-group">
+                    <label for="contas">Contas (luz, água, internet, etc.) (R$):</label>
+                    <input type="text" id="contas" required>
+                </div>
+                <div class="form-group">
+                    <label for="transporte">Transporte (R$):</label>
+                    <input type="text" id="transporte" required>
+                </div>
+                <div class="form-group">
+                    <label for="alimentacao">Alimentação Básica (R$):</label>
+                    <input type="text" id="alimentacao" required>
+                </div>
+            </div>
+    
+            <!-- Gastos Superfluos -->
+            <div class="gastos-superfluos">
+                <h3>Gastos Superfluos</h3>
+                <div class="form-group">
+                    <label for="lanches">Quantas vezes por semana você come lanches fora?</label>
+                    <input type="number" id="lanches" required>
+                </div>
+                <div class="form-group">
+                    <label for="gastoLanches">Quanto você gasta em média por lanche ( pizza e etc.. ) (R$)?</label>
+                    <input type="text" id="gastoLanches" required>
+                </div>
+                <div class="form-group">
+                    <label for="cafes">Quantos cafés ou  ( outros gastos ) por dia você tem ?</label>
+                    <input type="text" id="cafes" required>
+                </div>
+                <div class="form-group">
+                    <label for="gastoCafes">Quanto você gasta em média com cigarro ou outros gastos  (R$)?</label>
+                    <input type="text" id="gastoCafes" required>
+                </div>
+            </div>
+    
+            <button type="submit">Simular</button>
+        </form>
+        <div id="resultado">
+            <h3>Resultado:</h3>
+            <p><strong>Gastos Fixos Mensais:</strong> <span id="gastosFixosMensais">-</span></p>
+            <p><strong>Gastos Superfluos Mensais:</strong> <span id="gastosSuperfluosMensais">-</span></p>
+            <p><strong>Gastos Totais Mensais:</strong> <span id="gastosTotaisMensais">-</span></p>
+            <p><strong>Economia Potencial (reduzindo supérfluos pela metade):</strong> <span id="economiaMensal">-</span></p>
+        </div>
+        <canvas id="graficoGastos"></canvas> <!-- Gráfico interativo -->
+    </section>
+    <script>
+    
+    document.getElementById('gastosForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Evita o recarregamento da página
+
+        // Função para converter valores com pontos ou vírgulas em números
+        function parseCurrency(value) {
+            return parseFloat(value.replace(/\./g, '').replace(',', '.'));
+        }
+
+        // Captura os valores dos gastos fixos
+        const aluguel = parseCurrency(document.getElementById('aluguel').value);
+        const contas = parseCurrency(document.getElementById('contas').value);
+        const transporte = parseCurrency(document.getElementById('transporte').value);
+        const alimentacao = parseCurrency(document.getElementById('alimentacao').value);
+
+        // Captura os valores dos gastos supérfluos
+        const lanchesPorSemana = parseFloat(document.getElementById('lanches').value);
+        const gastoPorLanche = parseCurrency(document.getElementById('gastoLanches').value);
+        const cafesPorDia = parseFloat(document.getElementById('cafes').value);
+        const gastoPorCafe = parseCurrency(document.getElementById('gastoCafes').value);
+
+        // Calcula os gastos fixos mensais
+        const gastosFixosMensais = aluguel + contas + transporte + alimentacao;
+
+        // Calcula os gastos supérfluos mensais
+        const gastosLanchesMensais = lanchesPorSemana * 4 * gastoPorLanche; // 4 semanas no mês
+        const gastosCafesMensais = cafesPorDia * 30 * gastoPorCafe; // 30 dias no mês
+        const gastosSuperfluosMensais = gastosLanchesMensais + gastosCafesMensais;
+
+        // Calcula os gastos totais mensais
+        const gastosTotaisMensais = gastosFixosMensais + gastosSuperfluosMensais;
+
+        // Calcula a economia potencial (reduzindo supérfluos pela metade)
+        const economiaMensal = gastosSuperfluosMensais / 2;
+
+        // Formata os números para 2 casas decimais
+        const formatarMoeda = (valor) => valor.toLocaleString('pt-BR', {
+            style: 'currency',
+            currency: 'BRL'
+        });
+
+        // Exibe os resultados
+        document.getElementById('gastosFixosMensais').textContent = formatarMoeda(gastosFixosMensais);
+        document.getElementById('gastosSuperfluosMensais').textContent = formatarMoeda(gastosSuperfluosMensais);
+        document.getElementById('gastosTotaisMensais').textContent = formatarMoeda(gastosTotaisMensais);
+        document.getElementById('economiaMensal').textContent = formatarMoeda(economiaMensal);
+
+        // Cria o gráfico
+        const ctx = document.getElementById('graficoGastos').getContext('2d');
+        new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Gastos Fixos', 'Gastos Superfluos'],
+                datasets: [{
+                    data: [gastosFixosMensais, gastosSuperfluosMensais],
+                    backgroundColor: ['#4CAF50', '#FF6384'],
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Distribuição dos Gastos Mensais'
+                    }
+                }
+            }
+        });
+    });
+</script>
+    </script>
+    
+</body>
+</html>

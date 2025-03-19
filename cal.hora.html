@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Horas Trabalhadas</title>
+    <link rel="stylesheet" href="cal.hora.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de Horas Trabalhadas</h1>
+        <p>Calcule seu salário com base nas horas trabalhadas.</p>
+
+        <!-- Entrada de Dados -->
+        <div class="input-group">
+            <label for="hourlyRate">Valor da Hora de Trabalho (R$):</label>
+            <input type="text" id="hourlyRate" placeholder="Ex: 50,00">
+        </div>
+        <div class="input-group">
+            <label for="hoursWorked">Horas Trabalhadas no Mês:</label>
+            <input type="number" id="hoursWorked" placeholder="Ex: 160">
+        </div>
+
+        <!-- Botão para Calcular -->
+        <button onclick="calculateSalary()">Calcular</button>
+
+        <!-- Resultados -->
+        <div id="result" class="result">
+            <h2>Resultado</h2>
+            <p id="salaryResult"></p>
+        </div>
+
+        <!-- Botão "Voltar ao Início" -->
+        <a href="index.html">
+            <button onclick="window.location.href='https://www.seusite.com'" class="back-to-home">
+                Voltar à Página Inicial
+            </button>
+        </a>
+    </div>
+
+    <script>
+        function calculateSalary() {
+    // Captura dos valores inseridos pelo usuário
+    const hourlyRateInput = document.getElementById('hourlyRate').value;
+    const hoursWorked = parseFloat(document.getElementById('hoursWorked').value);
+
+    // Tratamento do valor monetário
+    const hourlyRate = parseFloat(hourlyRateInput.replace(',', '.'));
+
+    // Validação dos campos
+    if (isNaN(hourlyRate) || hourlyRate <= 0) {
+        alert("Por favor, insira um valor válido para a hora de trabalho.");
+        return;
+    }
+    if (isNaN(hoursWorked) || hoursWorked <= 0) {
+        alert("Por favor, insira um número válido de horas trabalhadas.");
+        return;
+    }
+
+    // Cálculo do salário bruto
+    const salary = hourlyRate * hoursWorked;
+
+    // Exibição do resultado com duas casas decimais e vírgula
+    document.getElementById('salaryResult').innerText = `Salário Bruto: R$ ${salary.toLocaleString('pt-BR', { style: 'decimal', minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+}
+    </script>
+</body>
+</html>

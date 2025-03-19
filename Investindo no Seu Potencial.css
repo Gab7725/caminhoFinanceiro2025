@@ -1,0 +1,116 @@
+/* Investindo no Seu Potencial.css */
+
+body {
+    font-family: 'Poppins', sans-serif; /* Fonte moderna */
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(120deg, #f7f9fc, #e3e8f0);
+    color: #333;
+    line-height: 1.8;
+}
+
+header {
+    background: linear-gradient(90deg, #0056b3, #007bff);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 15px 20px;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    width: 180px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+}
+
+h1 {
+    color: #0056b3;
+    text-align: center;
+    margin: 30px 20px 15px;
+    font-size: 2.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #0056b3;
+    font-size: 2rem;
+    margin: 25px 20px 10px;
+    text-transform: capitalize;
+    border-left: 5px solid #0056b3;
+    padding-left: 10px;
+}
+
+p {
+    margin: 15px 20px;
+    padding: 0 20px;
+    text-align: justify;
+    font-size: 1rem;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+}
+
+li {
+    padding: 0 20px;
+    margin: 20px 0;
+    list-style: none;
+}
+
+li ol {
+    background: #eef4fb;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border-left: 4px solid #007bff;
+    font-size: 1rem;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+li ol:hover {
+    background: #dbe8f7;
+    transform: translateX(10px);
+}
+
+footer {
+    background: linear-gradient(90deg, #0056b3, #007bff);
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 0.9rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    .logo {
+        width: 140px;
+    }
+
+    p, li {
+        padding: 0 10px;
+    }
+}
+

@@ -1,0 +1,408 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+}
+  
+ 
+.content {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+  
+.content h2 {
+    color: #2c3e50;
+  }
+  
+ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+  
+.graph {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+  
+  footer {
+    background-color: #2c3e50;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    bottom: 0;
+    width: 100%;
+  }
+  header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 15px;
+    padding: 80px;
+    height: 40px;
+}
+
+header .logotipo {
+    width: 180px;
+    transition: transform 1.3s ease;
+}
+
+header .logotipo:hover {
+    transform: rotate(30deg);
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #0f1aec;
+} 
+/* Estilos gerais */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Container da seção */
+/* Estilos gerais */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Container da seção */
+.investment-method {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Título principal */
+.investment-method h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+/* Subtítulo */
+.investment-method .subtitle {
+    font-size: 1.2rem;
+    color: #7f8c8d;
+    margin-bottom: 30px;
+    font-weight: 300;
+}
+
+/* Descrição */
+.investment-method .description {
+    font-size: 1.1rem;
+    color: #34495e;
+    margin-bottom: 40px;
+    font-weight: 400;
+}
+
+/* Grid de métodos */
+.method-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 0 20px;
+}
+
+/* Cards de método */
+.method-card {
+    background-color: #f1f3f4;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.method-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.method-card h3 {
+    font-size: 1.4rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+.arca img{
+    width: 350px;
+    height: 350px;
+    margin-left: 550px;
+    border-radius: 45%;
+
+
+}
+.method-card p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .investment-method {
+        padding: 20px;
+        margin: 20px;
+    }
+
+    .investment-method h1 {
+        font-size: 2rem;
+    }
+
+    .investment-method .subtitle {
+        font-size: 1rem;
+    }
+
+    .investment-method .description {
+        font-size: 1rem;
+    }
+
+    .method-grid {
+        grid-template-columns: 1fr;
+    }
+}
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+    header .logotipo {
+        width: 100px;
+        margin-bottom: 10px;
+    }
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    nav ul li a {
+        font-size: 16px;
+        padding: 8px 12px;
+        display: block;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+    nav ul li a:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+    main {
+        padding: 15px;
+    }
+    h2 {
+        font-size: 1.5em;
+    }
+    p, li {
+        font-size: 0.9em;
+    }
+    ul, ol {
+        margin-left: 10px;
+    }
+    table {
+        display: block;
+        overflow-x: auto;
+    }
+    th, td {
+        padding: 8px;
+        font-size: 0.9em;
+    }
+}
+/* Estilo do botão de menu (hambúrguer) */
+.menu-toggle {
+    display: none; /* Escondido por padrão */
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #000;
+    cursor: pointer;
+    padding: 10px;
+}
+
+/* Mostrar o botão apenas em telas pequenas */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* Mostra o botão */
+    }
+
+    nav {
+        display: none; /* Esconde o menu por padrão */
+        width: 100%;
+        background-color: #fff;
+        position: absolute;
+        top: 60px; /* Ajuste conforme a altura do header */
+        left: 0;
+        z-index: 1000;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    nav.active {
+        display: block; /* Mostra o menu quando ativo */
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 0;
+        padding: 10px 0;
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 10px 20px;
+        font-size: 16px;
+        color: #000;
+        text-align: left;
+        border-bottom: 1px solid #eee; /* Linha separadora */
+    }
+
+    nav ul li a:hover {
+        background-color: #f4f4f4; /* Efeito de hover */
+    }
+}
+/* Estilo do botão de menu (hambúrguer) */
+.menu-toggle {
+    display: none; /* Escondido por padrão */
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #000;
+    cursor: pointer;
+    padding: 10px;
+}
+
+/* Mostrar o botão apenas em telas pequenas */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* Mostra o botão */
+    }
+
+    nav {
+        display: none; /* Esconde o menu por padrão */
+        width: 100%;
+        background-color: #fff;
+        position: absolute;
+        top: 60px; /* Ajuste conforme a altura do header */
+        left: 0;
+        z-index: 1000;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    nav.active {
+        display: block; /* Mostra o menu quando ativo */
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 0;
+        padding: 10px 0;
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 10px 20px;
+        font-size: 16px;
+        color: #000;
+        text-align: left;
+        border-bottom: 1px solid #eee; /* Linha separadora */
+    }
+
+    nav ul li a:hover {
+        background-color: #f4f4f4; /* Efeito de hover */
+    }
+}
+/* Esconde o botão de menu em telas grandes */
+.menu-toggle {
+    display: none; /* Escondido por padrão */
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #000;
+    cursor: pointer;
+    padding: 10px;
+    position: absolute; /* Posiciona o botão no canto */
+    top: 20px; /* Ajuste conforme necessário */
+    right: 20px; /* Ajuste conforme necessário */
+    z-index: 1001; /* Garante que o botão fique acima de outros elementos */
+}
+
+/* Mostrar o botão apenas em telas pequenas */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* Mostra o botão */
+    }
+
+    nav {
+        display: none; /* Esconde o menu por padrão */
+        width: 100%;
+        background-color: #fff;
+        position: absolute;
+        top: 60px; /* Ajuste conforme a altura do header */
+        left: 0;
+        z-index: 1000;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    nav.active {
+        display: block; /* Mostra o menu quando ativo */
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 0;
+        padding: 10px 0;
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 10px 20px;
+        font-size: 16px;
+        color: #000;
+        text-align: left;
+        border-bottom: 1px solid #eee; /* Linha separadora */
+    }
+
+    nav ul li a:hover {
+        background-color: #f4f4f4; /* Efeito de hover */
+    }
+}
+@media (max-width: 768px) {
+    .arca img {
+        width: 50%; /* Ocupa 100% da largura da tela */
+        height: auto; /* Mantém a proporção da imagem */
+        margin-left: 0; /* Remove a margem esquerda */
+        border-radius: 10px; /* Bordas arredondadas */
+        display: block; /* Garante que a imagem seja exibida como bloco */
+        margin: 0 auto; /* Centraliza a imagem */
+    }
+}

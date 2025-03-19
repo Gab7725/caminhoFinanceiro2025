@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poupar vs Investir</title>
+    <link rel="stylesheet" href="poupar.investir.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Poupar vs Investir</h1>
+        <p style="color: crimson;">Descubra a diferença entre guardar dinheiro na poupança e investir.</p>
+
+        <!-- Entrada de Dados -->
+        <div class="input-group">
+            <label for="monthlyAmount">Quanto você quer guardar por mês? (R$):</label>
+            <input type="text" id="monthlyAmount" placeholder="Ex : 1500">
+        </div>
+        <div class="input-group">
+            <label for="timePeriod">Por quanto tempo (meses)?</label>
+            <input type="number" id="timePeriod" placeholder="">
+        </div>
+
+        <!-- Botão para Calcular -->
+        <button onclick="compareSavingsAndInvestments()">Calcular</button>
+
+        <!-- Resultados -->
+        <div id="result" class="result">
+            <h2>Resultado</h2>
+            <p id="savingsResult"></p>
+            <p id="investmentResult"></p>
+        </div>
+
+        <!-- Gráfico de Comparação -->
+        <div class="chart-container">
+            <canvas id="comparisonChart"></canvas>
+        </div>
+
+        <!-- Botão "Voltar ao Início" -->
+        <a href="index.html">
+            <button onclick="window.location.href='https://www.seusite.com'" class="back-to-home">
+                Voltar à Página Inicial
+            </button>
+        </a>
+    </div>
+
+   <script> 
+    function compareSavingsAndInvestments() {
+    // Captura dos valores inseridos pelo usuário
+    const monthlyAmountInput = document.getElementById('monthlyAmount').value;
+    const timePeriod = parseInt(document.getElementById('timePeriod').value);
+
+    // Tratamento do valor monetário
+    const monthlyAmount = parseFloat(monthlyAmountInput.replace(',', '.'));
+
+    // Validação dos campos
+    if (isNaN(monthlyAmount) || monthlyAmount <= 0) {
+        alert("Por favor, insira um valor válido para o valor mensal.");
+        return;
+    }
+    if (isNaN(timePeriod) || timePeriod <= 0) {
+        alert("Por favor, insira um número válido de meses.");
+        return;
+    }
+
+    // Taxas pré-definidas
+    const savingsRate = 0.3 / 100; // 0.5% ao mês (poupança)
+    const investmentRate = 1.0 / 100; // 0.8% ao mês (investimento, equivalente a ~10% ao ano)
+
+    // Cálculo da poupança
+    let savingsTotal = 0;
+    for (let i = 0; i < timePeriod; i++) {
+        savingsTotal = (savingsTotal + monthlyAmount) * (1 + savingsRate);
+    }
+
+    // Cálculo do investimento
+    let investmentTotal = 0;
+    for (let i = 0; i < timePeriod; i++) {
+        investmentTotal = (investmentTotal + monthlyAmount) * (1 + investmentRate);
+    }
+
+    // Exibição dos resultados
+    document.getElementById('savingsResult').innerText = `Poupança: R$ ${savingsTotal.toLocaleString('pt-BR', { style: 'decimal', minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+    document.getElementById('investmentResult').innerText = `Investimento: R$ ${investmentTotal.toLocaleString('pt-BR', { style: 'decimal', minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+
+    // Atualização do gráfico
+    updateChart(savingsTotal, investmentTotal);
+}
+
+function updateChart(savingsTotal, investmentTotal) {
+    const ctx = document.getElementById('comparisonChart').getContext('2d');
+
+    // Destruir gráfico anterior, se existir
+    if (window.myChart) {
+        window.myChart.destroy();
+    }
+
+    // Criar novo gráfico
+    window.myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Poupança', 'Investimento'],
+            datasets: [{
+                label: 'Valor Final (R$)',
+                data: [savingsTotal, investmentTotal],
+                backgroundColor: ['#FF6384', '#36A2EB'],
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'Valor (R$)'
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false,
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function (context) {
+                            return `R$ ${context.raw.toLocaleString('pt-BR', { style: 'decimal', minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+                        }
+                    }
+                }
+            }
+        }
+    });
+}
+   </script>
+</body>
+</html>

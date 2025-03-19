@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPCA</title>
+    <link rel="stylesheet" href="../Site2025/ipca.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="./index.html">
+                <img src="../Site2025/img/caminho.logo.png" alt="logotipo da pg" class="logotipo">
+            </a>
+            <!-- Botão de menu para mobile -->
+            <button class="menu-toggle" aria-label="Abrir menu">
+                <i class="fas fa-bars"></i> <!-- Ícone de hambúrguer do FontAwesome -->
+            </button>
+            <nav>
+                <ul class="menu">
+                    <li><a href="../Site2025/abasmenu.semente.html">Semente Financeira</a></li>
+                    <li><a href="../Site2025/Investindo no Seu Potencial.html">Investindo no Seu Potencial</a></li>
+                    <li><a href="../Site2025/Histórias de Sucesso.html">Histórias de Sucesso</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div id="ipca">
+    <h1>O que é o IPCA?</h1>
+    <p>O IPCA (Índice de Preços ao Consumidor Amplo) é o principal indicador da inflação no Brasil. Ele mede a variação de preços de produtos e serviços consumidos pelas famílias.</p>
+
+    <h2>Como o IPCA é calculado?</h2>
+    <p>O IBGE coleta preços de mais de 400 itens em várias cidades. Cada item tem um peso diferente, dependendo de quanto as famílias gastam com ele.</p>
+
+    <h2>Para que serve o IPCA?</h2>
+    <p>Ele é usado pelo Banco Central para definir a meta de inflação e ajustar políticas econômicas.</p>
+
+    <h2>Composição do IPCA</h2>
+    <table>
+        <tr>
+            <th>Grupo</th>
+            <th>Percentual</th>
+        </tr>
+        <tr>
+            <td>Alimentação e bebidas</td>
+            <td>24,77%</td>
+        </tr>
+        <tr>
+            <td>Transportes</td>
+            <td>18,29%</td>
+        </tr>
+        <tr>
+            <td>Habitação</td>
+            <td>15,82%</td>
+        </tr>
+        <tr>
+            <td>Saúde e cuidados pessoais</td>
+            <td>12,27%</td>
+        </tr>
+        <tr>
+            <td>Despesas pessoais</td>
+            <td>10,81%</td>
+        </tr>
+    </table>
+</div>
+        <script>
+            // Script para alternar o menu
+             document.querySelector('.menu-toggle').addEventListener('click', function() {
+             const nav = document.querySelector('nav');
+            nav.classList.toggle('active'); // Adiciona/remove a classe 'active'
+            });
+        </script>
+</body>
+</html>

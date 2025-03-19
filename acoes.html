@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ações: O que são e como avaliar</title>
+    <link rel="stylesheet" href="./acoes.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="./index.html">
+                <img src="../Site2025/img/caminho.logo.png" alt="logotipo da pg" class="logotipo">
+            </a>
+            <!-- Botão de menu para mobile -->
+            <button class="menu-toggle" aria-label="Abrir menu">
+                <i class="fas fa-bars"></i> <!-- Ícone de hambúrguer do FontAwesome -->
+            </button>
+            <nav>
+                <ul class="menu">
+                    <li><a href="../Site2025/abasmenu.semente.html">Semente Financeira</a></li>
+                    <li><a href="../Site2025/Investindo no Seu Potencial.html">Investindo no Seu Potencial</a></li>
+                    <li><a href="../Site2025/Histórias de Sucesso.html">Histórias de Sucesso</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <h2>O que são Ações?</h2>
+            <p>
+                Ações são pequenas partes do capital de uma empresa. Ao comprar uma ação, você se torna um acionista e passa a ter direitos, como receber dividendos e votar em decisões importantes.
+            </p>
+        </section>
+
+        <section>
+            <h2>Tipos de Ações</h2>
+            <ul>
+                <li><strong>Ações Ordinárias (ON):</strong> Dão direito a voto.</li>
+                <li><strong>Ações Preferenciais (PN):</strong> Prioridade no recebimento de dividendos.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Como Avaliar uma Ação</h2>
+            <h3>Análise Fundamentalista</h3>
+            <ul>
+                <li><strong>Lucro Líquido:</strong> Lucros consistentes são um bom sinal.</li>
+                <li><strong>Dividend Yield:</strong> Percentual dos lucros distribuídos.</li>
+                <li><strong>P/L (Preço sobre Lucro):</strong> Compara preço da ação com lucro.</li>
+            </ul>
+
+            <h3>Análise Técnica</h3>
+            <ul>
+                <li><strong>Gráficos:</strong> Comportamento do preço ao longo do tempo.</li>
+                <li><strong>Médias Móveis:</strong> Indicam tendências de alta ou baixa.</li>
+            </ul>
+
+            <h3>Contexto do Mercado</h3>
+            <ul>
+                <li><strong>Setor:</strong> O setor está em crescimento?</li>
+                <li><strong>Cenário Econômico:</strong> Fatores como taxa de juros e inflação.</li>
+            </ul>
+        </section>
+    </main>
+
+    <script>
+        // Script para alternar o menu
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            const nav = document.querySelector('nav');
+            nav.classList.toggle('active'); // Adiciona/remove a classe 'active'
+        });
+    </script>
+</body>
+</html>
