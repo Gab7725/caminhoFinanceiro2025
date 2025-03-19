@@ -11,13 +11,13 @@
     <header>
         <div class="header-container">
             <a href="index.html">
-                <img src="./img/caminho.logo.png" alt="Logo Caminho Financeiro" class="logo">
+                <img src="img/caminho.logo.png" alt="Logo Caminho Financeiro" class="logo">
             </a>
             <nav>
                 <ul class="menu">
-                    <li><a href="../Site2025/abasmenu.semente.html">Semente Financeira</a></li>
-                    <li><a href="../Site2025/Investindo no Seu Potencial.html">Investindo no Seu Potencial</a></li>
-                    <li><a href="../Site2025/Histórias de Sucesso.html">Histórias de Sucesso</a></li>
+                    <li><a href="abasmenu.semente.html">Semente Financeira</a></li>
+                    <li><a href="Investindo no Seu Potencial.html">Investindo no Seu Potencial</a></li>
+                    <li><a href="Histórias de Sucesso.html">Histórias de Sucesso</a></li>
                 </ul>
             </nav>
             <button class="menu-toggle" aria-label="Abrir menu">&#9776;</button>
@@ -64,7 +64,7 @@
         <!-- Árvore que cresce -->
         <div class="arvore-container">
             <div class="arvore" id="arvore">
-                <img src="./img/img.semente.jpg" alt="Semente" id="imagem-arvore">
+                <img src="img/img.semente.jpg" alt="Semente" id="imagem-arvore">
             </div>
         </div>
     </div>
@@ -117,13 +117,13 @@
                     etapaAtual = 2;
                     document.getElementById("etapa1").style.display = "none";
                     document.getElementById("etapa2").style.display = "block";
-                    imagemArvore.src = "./img/broto.jpg"; // Atualiza a imagem para um broto
+                    imagemArvore.src = "img/broto.jpg"; // Atualiza a imagem para um broto
                 } else if (etapa == 2) {
                     escolhas[1] = valor;
                     etapaAtual = 3;
                     document.getElementById("etapa2").style.display = "none";
                     document.getElementById("etapa3").style.display = "block";
-                    imagemArvore.src = "./img/Arvore.webp"; // Atualiza a imagem para uma árvore
+                    imagemArvore.src = "img/Arvore.webp"; // Atualiza a imagem para uma árvore
                     escolha1.textContent = escolhas[0];
                     escolha2.textContent = escolhas[1];
                     orientacao.textContent = dicas[escolhas[0]][escolhas[1]];
